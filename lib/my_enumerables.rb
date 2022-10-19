@@ -1,8 +1,16 @@
 module Enumerable
-  # Your code goes here
+  def my_each_with_index
+    return unless block_given?
+
+    i = 0
+    while i < self.length
+      yield self[i], i
+      i += 1
+    end
+    self
+  end
 end
 
-# Enumerable#my_each_with_index	spec/my_each_with_index_spec.rb
 # Enumerable#my_select	spec/my_select_spec.rb
 # Enumerable#my_all?	spec/my_all_spec.rb
 # Enumerable#my_any?	spec/my_any_spec.rb
