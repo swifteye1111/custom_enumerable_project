@@ -27,9 +27,13 @@ module Enumerable
     my_each { |elm| return true if yield elm }
     false
   end
+
+  def my_none?
+    my_each { |elm| return false if yield elm }
+    true
+  end
 end
 
-# Enumerable#my_any?	spec/my_any_spec.rb
 # Enumerable#my_none?	spec/my_none_spec.rb
 # Enumerable#my_count	spec/my_count_spec.rb
 # Enumerable#my_map	spec/my_map_spec.rb
