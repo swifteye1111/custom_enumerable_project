@@ -24,7 +24,8 @@ module Enumerable
   end
 
   def my_any?
-    self.my
+    my_each { |elm| return true if yield elm }
+    false
   end
 end
 
