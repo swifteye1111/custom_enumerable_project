@@ -17,6 +17,11 @@ module Enumerable
     end
     arr
   end
+
+  def my_all?
+    self.my_each { |elm| return false unless yield elm }
+    true
+  end
 end
 
 # Enumerable#my_all?	spec/my_all_spec.rb
