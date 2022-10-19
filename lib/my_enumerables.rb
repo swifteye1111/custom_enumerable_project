@@ -9,9 +9,16 @@ module Enumerable
     end
     self
   end
+
+  def my_select
+    arr = []
+    for elm in self
+      arr << elm if yield elm
+    end
+    arr
+  end
 end
 
-# Enumerable#my_select	spec/my_select_spec.rb
 # Enumerable#my_all?	spec/my_all_spec.rb
 # Enumerable#my_any?	spec/my_any_spec.rb
 # Enumerable#my_none?	spec/my_none_spec.rb
