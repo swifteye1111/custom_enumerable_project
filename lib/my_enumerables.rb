@@ -3,7 +3,7 @@ module Enumerable
     return unless block_given?
 
     i = 0
-    while i < self.length
+    while i < length
       yield self[i], i
       i += 1
     end
@@ -19,12 +19,15 @@ module Enumerable
   end
 
   def my_all?
-    self.my_each { |elm| return false unless yield elm }
+    my_each { |elm| return false unless yield elm }
     true
+  end
+
+  def my_any?
+    self.my
   end
 end
 
-# Enumerable#my_all?	spec/my_all_spec.rb
 # Enumerable#my_any?	spec/my_any_spec.rb
 # Enumerable#my_none?	spec/my_none_spec.rb
 # Enumerable#my_count	spec/my_count_spec.rb
@@ -40,7 +43,7 @@ class Array
     return unless block_given?
 
     i = 0
-    while i < self.length
+    while i < length
       yield self[i]
       i += 1
     end
