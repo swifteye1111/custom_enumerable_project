@@ -40,9 +40,16 @@ module Enumerable
     my_each { |elm| sum += 1 if yield elm }
     sum
   end
+
+  def my_map(&block)
+    [] unless block_given?
+
+    arr = []
+    each { |elm| arr << block.call(elm) }
+    arr
+  end
 end
 
-# Enumerable#my_count	spec/my_count_spec.rb
 # Enumerable#my_map	spec/my_map_spec.rb
 # Enumerable#my_inject	spec/my_inject_spec.rb
 
