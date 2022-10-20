@@ -48,9 +48,14 @@ module Enumerable
     each { |elm| arr << block.call(elm) }
     arr
   end
+
+  def my_inject(start)
+    result = start
+    each { |elm| result = yield result, elm }
+    result
+  end
 end
 
-# Enumerable#my_map	spec/my_map_spec.rb
 # Enumerable#my_inject	spec/my_inject_spec.rb
 
 # You will first have to define my_each
